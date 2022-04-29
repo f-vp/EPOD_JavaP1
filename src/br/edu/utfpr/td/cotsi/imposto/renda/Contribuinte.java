@@ -37,6 +37,7 @@ public class Contribuinte {
         return rendaAnual;
     }
 
+    //Cada chamada dos metodos set aumentamos a aliquota baseado nos dados do individuo
     public void setRendaAnual(double rendaAnual) {
         if (rendaAnual > 500000) this.aliquota += 0.095;
 
@@ -71,7 +72,9 @@ public class Contribuinte {
         return listaPatrimonio;
     }
 
+    // Aqui recebemos uma lista de patrimonios e somamos todos os valores dos tributos e colocamos na variavel listaPatrimonio
     public void setListaPatrimonio(List<Patrimonio> listaPatrimonio) {
+        //forEach do Java, ele passa por cada elemento do listaPatrimonio e atribui esse valor a variavel p
         for (Patrimonio p : listaPatrimonio) {
             if (p.getValor() > 300000) this.valorPatrimonio += p.getValor() * 0.01;
         }
@@ -83,6 +86,7 @@ public class Contribuinte {
         return aliquota;
     }
 
+    // Aqui calculamos o valor total devido para cada chamada do metodo getValorTotal
     public double getValorTotal() {
         valorTotal = this.aliquota * this.getRendaAnual() + getValorPatrimonio();
 
@@ -101,6 +105,7 @@ public class Contribuinte {
         this.valorPatrimonio = valorPatrimonio;
     }
 
+    // Aqui voce pode gerar o metodo toString que é um metodo padrao do java para retornar os campos de um objeto
     @Override
     public String toString() {
         return "Contribuinte{" +

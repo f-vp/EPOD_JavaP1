@@ -28,11 +28,11 @@ public class Main {
 
         System.out.println("Deseja declarar patrimonio (sim ou nao)");
 
-        List listaPatrimonio = new ArrayList<>();
+        List<Patrimonio> listaPatrimonio = new ArrayList<>();
 
         if (scanner.nextLine().equals("sim")) {
             System.out.println("teste");
-            while (true) {
+            do {
                 Patrimonio patrimonio = new Patrimonio();
 
                 System.out.println("Digite o tipo do patrimonio");
@@ -44,13 +44,12 @@ public class Main {
                 listaPatrimonio.add(patrimonio);
 
                 System.out.println("Pressione qualquer tecla para declarar outro patrimonio, ou pressione Enter para continuar");
-                if (scanner.nextLine().equals("")) break;
-            }
+            } while (!scanner.nextLine().equals(""));
         }
 
         individuo.setListaPatrimonio(listaPatrimonio);
 
-
+        // Nao é necessario chamar o metodo toString aqui, visto que o javacompiler ja sabe automaticamente que o metodo desejado sera o toString
         System.out.println(individuo);
     }
 }
